@@ -1,0 +1,15 @@
+{
+    "name": "luxorclean",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.jade",
+    "scripts": {
+        "dev": "harp ./src & browser-sync start --proxy 'localhost:9000' --files './src/**/*.jade, ./src/**/*.scss'"
+    },
+    "author": "elvis.olv@gmail.com",
+    "license": "ISC",
+    "dependencies": {
+    "browser-sync": "^2.27.7",
+    "harp": "^0.41.2"
+    }
+}
