@@ -7,7 +7,6 @@ $(function() {
   pictures = slider.find('img');
   loaded = 0;
   pictures.on('load', function() {
-    console.log("teste");
     sliderWidth += $(this).width();
     loaded++;
     if (loaded === pictures.length) {
