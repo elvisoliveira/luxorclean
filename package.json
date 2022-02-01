@@ -4,12 +4,16 @@
     "description": "",
     "main": "index.jade",
     "scripts": {
-        "dev": "harp ./src & browser-sync start --proxy 'localhost:9000' --files './src/**/*.jade, ./src/**/*.scss'"
+        "dev": "harp ./src & browser-sync start --proxy 'localhost:9000' --files './src/**/*.jade, ./src/**/*.scss, ./src/**/*.coffee'",
+        "deploy": "harp ./src/ ./dest/"
     },
     "author": "elvis.olv@gmail.com",
     "license": "ISC",
     "dependencies": {
-    "browser-sync": "^2.27.7",
-    "harp": "^0.41.2"
+        "browser-sync": "^2.27.7",
+        "harp": "^0.41.2"
+    },
+    "devDependencies": {
+        "coffeescript": "^2.6.1"
     }
 }

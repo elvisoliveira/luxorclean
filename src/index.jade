@@ -24,11 +24,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             li
               a(href='#') Sobre
             li
-              a(href='#') Serviços
+              a(href='#section-contact') Serviços
             li
               a(href='#') FAQ
             li
-              a(href='#') Contato
+              a(href='#section-contact') Contato
     #section-banner
       #banner
         dl
@@ -185,21 +185,4 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             li
               a.linkedin(href='#') LinkedIn
     script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
-    script(type='text/javascript').
-        $(function() {
-            let container = $('div#portifolio-gallery');
-            let containerWidth = container.innerWidth();
-            let slider = container.find('ul');
-            let sliderWidth = 0;
-            let pictures = slider.find("img");
-            let loaded = 0;
-            pictures.on("load", function() {
-                sliderWidth += $(this).width();
-                loaded++;
-                if(loaded == pictures.length){
-                    $('div#portifolio-gallery').mousemove(function(e) {
-                        slider.css({left: ((containerWidth - sliderWidth) * ((e.pageX / containerWidth).toFixed(3))).toFixed(1) + "px" });
-                    });
-                }
-            });
-        });
+    script(type='text/javascript' src='gallery.js')
