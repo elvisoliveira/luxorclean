@@ -1,0 +1,50 @@
+div#section-banner {
+    div#banner {
+        height: 408px;
+        padding-top: 82px;
+        background-image: url("assets/img/home.png");
+        background-repeat: no-repeat;
+        background-position: 432px 31px;
+        @include respond-to(handhelds) {
+            padding-top: 20px;
+        }
+        dl {
+            margin-left: 42px;
+            width: 365px;
+            @include respond-to(handhelds) {
+                margin: 0;
+                width: 100%;
+            }
+            dt {
+                font-weight: bold;
+                font-size: 40px;
+                line-height: 43px;
+            }
+            dd {
+                margin-top: 14px;
+                p {
+                    float: left;
+                    font-size: 15px;
+                    font-weight: 100;
+                    line-height: 22px;
+                }
+                a {
+                    float: left;
+                    color: #FFF;
+                    clear: both;
+                    text-transform: none;
+                    background-color: $blue;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    margin-top: 25px;
+                    @include respond-to(handhelds) {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

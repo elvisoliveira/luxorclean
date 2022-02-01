@@ -1,0 +1,9 @@
+div#section-map {
+    padding: 10px 0 0 0;
+    background-color: #EFF4F8;
+    iframe {
+        @extend %clear;
+        height: 300px;
+    }
+}
+

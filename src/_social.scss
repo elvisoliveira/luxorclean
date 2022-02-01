@@ -1,0 +1,64 @@
+div#section-social {
+    height: 200px;
+    background-color: $blue;
+    @include respond-to(handhelds) {
+        height: auto;
+        padding: 20px 0;
+    }
+    div#social {
+        dl {
+            float: left;
+            margin-top: 30px;
+            width: 480px;
+            padding-top: 16px;
+            padding-bottom: 33px;
+            padding-right: 44px;
+            border-right: 2px solid #FFF;
+            padding-left: 45px;
+            @include respond-to(handhelds) {
+                width: 100%;
+                padding: 0;
+                border: 0;
+                text-align: center;
+            }
+            dt {
+                font-size: 40px;
+                font-weight: bold;
+                color: #FFF;
+            }
+            dd {
+                font-size: 15px;
+                font-weight: 100;
+                color: #FFF;
+                margin-top: 8px;
+                line-height: 22px;
+            }
+        }
+        a {
+            float: right;
+            width: 121px;
+            height: 121px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 42px;
+            border: 3px dashed white;
+            border-radius: 64px;
+            text-indent: -3000em;
+            @include respond-to(handhelds) {
+                margin: 20px 0 !important;
+            }
+            &.instagram {
+                @include respond-to(handhelds) {
+                    float: left;
+                }
+                margin-right: 90px;
+                background-image: url("assets/icons/instagram.png");
+            }
+            &.whatsapp {
+                margin-right: 39px;
+                background-image: url("assets/icons/whatsapp.png");
+            }
+        }
+    }
+}
+

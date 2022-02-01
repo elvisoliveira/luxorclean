@@ -1,0 +1,60 @@
+div#section-footer {
+    background-color: $blue;
+    @include respond-to(handhelds) {
+        padding: 20px 0;
+    }
+    div#footer {
+        div.copyright {
+            float: left;
+            padding: 16px 0;
+            @include respond-to(handhelds) {
+                padding: 0;
+                margin-bottom: 15px;
+            }
+            p {
+                color: #fff;
+                font-weight: 100;
+                font-size: 15px;
+            }
+        }
+        div.social-networks {
+            float: right;
+            padding: 16px 0;
+            @include respond-to(handhelds) {
+                @include centralize(155px);
+                float: none;
+            }
+            ul {
+                li {
+                    float: left;
+                    list-style: none;
+                    margin-left: 25px;
+                    &:first-child {
+                        margin: 0;
+                    }
+                    a {
+                        float: left;
+                        width: 20px;
+                        height: 20px;
+                        text-indent: -3000em;
+                        background-image: url("assets/icons/social-networks.png");
+                        background-repeat: no-repeat;
+                        &.facebook {
+                            background-position: -145px 2px;
+                        }
+                        &.twitter {
+                            background-position: -185px 2px;
+                        }
+                        &.instagram {
+                            background-position: -220px 2px;
+                        }
+                        &.linkedin {
+                            background-position: -261px 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

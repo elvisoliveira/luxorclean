@@ -1,0 +1,75 @@
+div#section-services {
+    height: 626px;
+    @include respond-to(handhelds) {
+        height: auto;
+    }
+    div#services {
+        background-color: #000;
+        ul {
+            margin-top: 50px;
+            @include respond-to(handhelds) {
+                margin: 0;
+            }
+            li {
+                margin-right: 34px;
+                float: left;
+                width: 230px;
+                height: 66px;
+                list-style: none;
+                background-color: #FFF;
+                font-size: 20px;
+                color: $blue;
+                text-align: center;
+                padding-top: 184px;
+                border-radius: 3px;
+                box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+                background-repeat: no-repeat;
+                @include respond-to(handhelds) {
+                    width: 100%;
+                    margin: 30px 0 0 0;
+                }
+                &:nth-child(4n) {
+                    margin-right: 0;
+                    margin-bottom: 35px;
+                }
+                &:nth-child(1) {
+                    background-image: url("assets/services/carpets-and-rugs.png");
+                    background-position: center 30px;
+                }
+                &:nth-child(2) {
+                    background-image: url("assets/services/futons-couches-and-upholstery.png");
+                    background-position: center 34px;
+                }
+                &:nth-child(3) {
+                    background-image: url("assets/services/mattresses.png");
+                    background-position: center 27px;
+                }
+                &:nth-child(4) {
+                    background-image: url("assets/services/curtains-and-blinds.png");
+                    background-position: center 18px;
+                }
+                &:nth-child(5) {
+                    background-image: url("assets/services/automotive-upholstery.png");
+                    background-position: center 29px;
+                }
+                &:nth-child(6) {
+                    background-image: url("assets/services/leather-hydration.png");
+                    background-position: center 17px;
+                }
+                &:nth-child(7) {
+                    background-image: url("assets/services/waterproofing.png");
+                    background-position: center 27px;
+                    padding-top: 197px;
+                    height: 53px;
+                }
+                &:nth-child(8) {
+                    background-image: url("assets/services/sanitization-and-ionization-of-environments.png");
+                    background-position: center 24px;
+                    padding-top: 168px;
+                    height: 82px;
+                }
+            }
+        }
+    }
+}
+
