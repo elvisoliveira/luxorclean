@@ -1,0 +1,18 @@
+{
+    "globals": {
+        "title": "LuxorClean Higienização Premium",
+        "description": "A LUXORCLEAN é uma empresa especializada em higienização e impermeabilização de estofados. Trabalhamos com sofás, colchões, cadeiras, poltronas, bancos automotivo e carpetes.",
+        "support": "Estamos à disposição para tirar dúvidas à respeito de nossos serviços, preços e condições de pagamento.",
+        "address": "Rua dos Timbiras, 1936 - Lourdes, Belo Horizonte MG, 30140-061",
+        "social": {
+            "facebook": "#",
+            "twitter": "#",
+            "instagram": "https://www.instagram.com/luxorclean/",
+            "linkedin": "#"
+        },
+        "contact": {
+            "phone": "+55 (31) 97148 6999",
+            "email": "contato@luxorclean.com.br"
+        }
+    }
+}

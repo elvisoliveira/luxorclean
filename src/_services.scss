@@ -5,12 +5,15 @@ div#section-services {
     }
     div#services {
         background-color: #000;
-        ul {
+        dl {
             margin-top: 50px;
             @include respond-to(handhelds) {
                 margin: 0;
             }
-            li {
+            dd {
+                display: none;
+            }
+            dt {
                 margin-right: 34px;
                 float: left;
                 width: 230px;
@@ -28,46 +31,46 @@ div#section-services {
                     width: 100%;
                     margin: 30px 0 0 0;
                 }
-                &:nth-child(4n) {
-                    margin-right: 0;
-                    margin-bottom: 35px;
-                }
-                &:nth-child(1) {
-                    background-image: url("assets/services/carpets-and-rugs.png");
-                    background-position: center 30px;
-                }
-                &:nth-child(2) {
-                    background-image: url("assets/services/futons-couches-and-upholstery.png");
-                    background-position: center 34px;
-                }
-                &:nth-child(3) {
-                    background-image: url("assets/services/mattresses.png");
-                    background-position: center 27px;
-                }
-                &:nth-child(4) {
-                    background-image: url("assets/services/curtains-and-blinds.png");
-                    background-position: center 18px;
-                }
-                &:nth-child(5) {
-                    background-image: url("assets/services/automotive-upholstery.png");
-                    background-position: center 29px;
-                }
-                &:nth-child(6) {
-                    background-image: url("assets/services/leather-hydration.png");
-                    background-position: center 17px;
-                }
-                &:nth-child(7) {
-                    background-image: url("assets/services/waterproofing.png");
-                    background-position: center 27px;
-                    padding-top: 197px;
-                    height: 53px;
-                }
-                &:nth-child(8) {
-                    background-image: url("assets/services/sanitization-and-ionization-of-environments.png");
-                    background-position: center 24px;
-                    padding-top: 168px;
-                    height: 82px;
-                }
+            }
+            &:nth-child(4n) dt {
+                margin-right: 0;
+                margin-bottom: 35px;
+            }
+            &:nth-child(1) dt {
+                background-image: url("assets/services/carpets-and-rugs.png");
+                background-position: center 30px;
+            }
+            &:nth-child(2) dt {
+                background-image: url("assets/services/futons-couches-and-upholstery.png");
+                background-position: center 34px;
+            }
+            &:nth-child(3) dt {
+                background-image: url("assets/services/mattresses.png");
+                background-position: center 27px;
+            }
+            &:nth-child(4) dt {
+                background-image: url("assets/services/curtains-and-blinds.png");
+                background-position: center 18px;
+            }
+            &:nth-child(5) dt {
+                background-image: url("assets/services/automotive-upholstery.png");
+                background-position: center 29px;
+            }
+            &:nth-child(6) dt {
+                background-image: url("assets/services/leather-hydration.png");
+                background-position: center 17px;
+            }
+            &:nth-child(7) dt {
+                background-image: url("assets/services/waterproofing.png");
+                background-position: center 27px;
+                padding-top: 197px;
+                height: 53px;
+            }
+            &:nth-child(8) dt {
+                background-image: url("assets/services/sanitization-and-ionization-of-environments.png");
+                background-position: center 24px;
+                padding-top: 168px;
+                height: 82px;
             }
         }
     }

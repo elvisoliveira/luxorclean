@@ -3,13 +3,15 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
   head
     // Meta
     meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='description' content='#{ description }')
+    meta(name='robots' content='index,follow')
     meta(http-equiv='content-type' content='text/html; charset=utf-8')
     // Scripts
     script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
     // Styles
     link(rel='stylesheet' type='text/css' href='master.css')
     // Browser
-    title LuxorClean Higienização Premium
+    title #{ title }
     // Icons
     link(rel='apple-touch-icon' sizes='180x180' href='assets/apple-touch-icon.png')
     link(rel='icon' type='image/png' sizes='32x32' href='assets/favicon-32x32.png')
@@ -20,33 +22,28 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
       #header
         .logo
           a(href='/')
-            img(src='assets/img/logo.png' alt='LuxorClean Higienização Premium')
+            img(src='assets/img/logo.png' alt='#{ title }')
         .menu
           ul
-            li
-              a(href='#') Sobre
-            li
-              a(href='#section-services') Serviços
-            li
-              a(href='#') FAQ
-            li
-              a(href='#section-contact') Contato
+            each menu, key in { 'services': 'Serviços', 'contact': 'Contato', 'faq': 'FAQ' }
+              li
+                a(href='#section-' + key) #{ menu }
     #section-banner
       #banner
         dl
           dt Limpeza de estofados em Belo Horizonte e região
           dd
             p
-              | A LUXORCLEAN é uma empresa especializada em higienização e impermeabilização de estofados. Trabalhamos com sofás, colchões, cadeiras, poltronas, bancos automotivo e carpetes.#[br]
+              | #{ description } #[br]
             a(href='#section-contact') Solicite um orçamento
     #section-social
       #social
         dl
           dt WhatsApp e Instagram
           dd
-            | Estamos à disposição para tirar dúvidas à respeito de nossos serviços, preços e condições de pagamento.
-        a.instagram(href='https://www.instagram.com/luxorclean/' target='_blank') Instagram
-        a.whatsapp(href='https://web.whatsapp.com/send?phone=5531971486999' target='_blank') Whatsapp
+            | #{ support }
+        a.instagram(href='#{ social.instagram }' target='_blank') Instagram
+        a.whatsapp(href='https://web.whatsapp.com/send?phone=#{ contact.phone }' target='_blank') Whatsapp
     #section-portifolio
       #portifolio
         dl
@@ -54,77 +51,18 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd Confira nossos ultimos trabalhos!
       #portifolio-gallery
         ul
-          li
-            a(href='#')
-              img(src='pictures/001.jpg')
-          li
-            a(href='#')
-              img(src='pictures/002.jpg')
-          li
-            a(href='#')
-              img(src='pictures/003.jpg')
-          li
-            a(href='#')
-              img(src='pictures/004.jpg')
-          li
-            a(href='#')
-              img(src='pictures/005.jpg')
-          li
-            a(href='#')
-              img(src='pictures/001.jpg')
-          li
-            a(href='#')
-              img(src='pictures/002.jpg')
-          li
-            a(href='#')
-              img(src='pictures/003.jpg')
-          li
-            a(href='#')
-              img(src='pictures/004.jpg')
-          li
-            a(href='#')
-              img(src='pictures/005.jpg')
-          li
-            a(href='#')
-              img(src='pictures/001.jpg')
-          li
-            a(href='#')
-              img(src='pictures/002.jpg')
-          li
-            a(href='#')
-              img(src='pictures/003.jpg')
-          li
-            a(href='#')
-              img(src='pictures/004.jpg')
-          li
-            a(href='#')
-              img(src='pictures/005.jpg')
-          li
-            a(href='#')
-              img(src='pictures/001.jpg')
-          li
-            a(href='#')
-              img(src='pictures/002.jpg')
-          li
-            a(href='#')
-              img(src='pictures/003.jpg')
-          li
-            a(href='#')
-              img(src='pictures/004.jpg')
-          li
-            a(href='#')
-              img(src='pictures/005.jpg')
+          each _, i in Array(28)
+            li
+              a(href='#')
+                img(src=(`pictures/${i}.jpg`))
     #section-services
       #services
-        ul
-          li Carpetes e #[br]tapetes
-          li Futons, sofás e #[br]estofados
-          li Colchões
-          li Cortinas e #[br]persianas
-          li Estofados #[br]automotivos
-          li Hidratação de #[br]couro
-          li Impermeabilização
-          li Sanitizacao e #[br]Ionização de #[br]ambientes
+        for post in public.services._data
+          dl
+            dt !{ post.title }
+            dd
+              for paragraph in post.description
+                p #{ paragraph }
     #section-contact
       #contact
         dl.form
@@ -132,58 +70,41 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd
             form(action='https://formspree.io/f/mpzbrkkn' method='POST')
               fieldset
-                dl
-                  dt
-                    label(for='name') Nome
-                  dd
-                    input(type='text' name='name' placeholder='Nome')
-                dl
-                  dt
-                    label(for='phone') Telefone
-                  dd
-                    input(type='text' name='phone' placeholder='Telefone')
-                dl
-                  dt
-                    label(for='mail') Email
-                  dd
-                    input(type='text' name='mail' placeholder='Email')
-                dl
-                  dt
-                    label(for='message') Mensagem
-                  dd
-                    textarea(name='message' placeholder='Mensagem')
-              input(type='submit' value='Enviar')
+                each label, key in { 'name': 'Nome', 'phone': 'Telefone', 'mail': 'Email', 'message': 'Mensagem' }
+                  dl
+                    dt
+                      label(for=key) label
+                    dd
+                      - if (key == 'message') {
+                      textarea(name=key placeholder=label)
+                      - } else {
+                      input(type='text' name=key placeholder=label)
+                      - }
         dl.head
           dt Entre em contato
           dd
-            | Estamos à disposição para tirar dúvidas à respeito de nossos serviços, preços e condições de pagamento.
+            | #{ support }
         dl.info
           dt Informações de contato
           dd
-            dl.phone
-              dt Telefone
-              dd (31) 97148 6999
-            dl.email
-              dt Email
-              dd contato@luxorclean.com.br
+            each value, label in contact
+              dl(class=label)
+                - label = label.charAt(0).toUpperCase() + label.slice(1);
+                dt #{ label }
+                dd #{ value }
         dl.address
           dt Endereço
           dd
-            address Rua dos Timbiras, 1936 - Lourdes, Belo Horizonte - MG, 30140-061
+            address #{ address }
     #section-map
-      iframe(src='https://maps.google.com/maps?q=Rua dos Timbiras, 1936 - Lourdes, Belo Horizonte - MG, 30140-061&t=&z=13&ie=UTF8&iwloc=&output=embed' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
+      iframe(src='https://maps.google.com/maps?q=#{ address }&output=embed' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
       #footer
         .copyright
-          p © 2022 Luxorclean, todos os direitos reservados.
+          p © 2023 Luxorclean, todos os direitos reservados.
         .social-networks
           ul
-            li
-              a.facebook(href='#') Facebook
-            li
-              a.twitter(href='#') Twitter
-            li
-              a.instagram(href='https://www.instagram.com/luxorclean/' target='_blank') Instagram
-            li
-              a.linkedin(href='#') LinkedIn
+            each link, name in social
+              li
+                a(class=name href=link) #{ name }
     script(type='text/javascript' src='gallery.js')
