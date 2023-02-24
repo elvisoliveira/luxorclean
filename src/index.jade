@@ -1,22 +1,28 @@
+<!-- by: github.com/elvisoliveira -->
 doctype strict
 html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br')
   head
-    // Meta
     meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     meta(name='description' content='#{ description }')
     meta(name='robots' content='index,follow')
     meta(http-equiv='content-type' content='text/html; charset=utf-8')
-    // Scripts
-    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
-    // Styles
+
+    script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js')
+    script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js')
+
     link(rel='stylesheet' type='text/css' href='master.css')
-    // Browser
+    link(rel='stylesheet' type='text/css' href='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.css')
+
     title #{ title }
-    // Icons
+
     link(rel='apple-touch-icon' sizes='180x180' href='assets/apple-touch-icon.png')
     link(rel='icon' type='image/png' sizes='32x32' href='assets/favicon-32x32.png')
     link(rel='icon' type='image/png' sizes='16x16' href='assets/favicon-16x16.png')
     link(rel='manifest' href='assets/site.webmanifest')
+
+    script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }')
+    script.
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '#{ keys.google_analytics }');
   body
     #section-header
       #header
@@ -57,10 +63,10 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                 img(src=(`pictures/${i}.jpg`))
     #section-services
       #services
-        for post in public.services._data
-          dl
+        for post, id in public.services._data
+          dl(data-fancybox data-src=`#${id}` data-width=700 data-height=500)
             dt !{ post.title }
-            dd
+            dd(id=id)
               for paragraph in post.description
                 p #{ paragraph }
     #section-contact
@@ -68,7 +74,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
         dl.form
           dt Contato por email
           dd
-            form(action='https://formspree.io/f/mpzbrkkn' method='POST')
+            form(action='https://formspree.io/f/#{ keys.formspree }' method='POST')
               fieldset
                 each label, key in { 'name': 'Nome', 'phone': 'Telefone', 'mail': 'Email', 'message': 'Mensagem' }
                   dl
@@ -97,7 +103,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd
             address #{ address }
     #section-map
-      iframe(src='https://maps.google.com/maps?q=#{ address }&output=embed' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
+      iframe(src='https://maps.google.com/maps?q=#{ address }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
       #footer
         .copyright
