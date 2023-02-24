@@ -1,5 +1,5 @@
-[
-    {
+{
+    "carpetes-e-tapetes": {
         "title": "Carpetes e <br />tapetes",
         "description": [
             "Os tapetes e carpetes são itens comuns em muitos lares e escritórios, e são uma parte importante da decoração e do conforto do espaço. No entanto, eles também acumulam muita sujeira, poeira, ácaros e outros contaminantes ao longo do tempo. Limpar os tapetes e carpetes regularmente é crucial para manter a higiene e a saúde de quem vive ou trabalha no ambiente.",
@@ -7,7 +7,8 @@
             "Além da questão da saúde, a limpeza dos tapetes e carpetes também é importante para preservar a aparência e a durabilidade desses itens. A sujeira e a poeira podem danificar o material, tornando-o áspero e opaco com o tempo. Além disso, as manchas e outros danos também podem ser removidos com uma limpeza adequada, ajudando a preservar o aspecto original do item.",
             "A limpeza regular de tapetes e carpetes é importante para manter a higiene, a saúde e a aparência dos itens. É recomendável contratar profissionais para realizar a limpeza com frequência, garantindo assim resultados eficazes e duradouros."
         ]
-    }, {
+    },
+    "futons-sofas-e-estofados": {
         "title": "Futons, sofás e <br />estofados",
         "description": [
             "Os sofás e estofados são mais do que simples móveis – eles são o centro das nossas vidas em casa. É onde passamos horas assistindo TV, conversando com amigos e familiares, e simplesmente relaxando. No entanto, ao longo do tempo, eles podem se tornar um foco de contaminantes, como poeira, ácaros e até mesmo bactérias. Por isso, a limpeza dos sofás e estofados é tão importante.",
@@ -15,7 +16,8 @@
             "Manchas, sujeira ou desgaste excessivo podem ter um impacto negativo na aparência geral do seu ambiente, prejudicando a decoração e o estilo do seu lar. A limpeza regular pode ajudar a preservar a aparência e a durabilidade dos seus sofás e estofados, mantendo seu ambiente sempre elegante e acolhedor.",
             "A limpeza dos sofás e estofados é importante para a sua saúde, estilo e bem-estar geral. Não subestime o poder de ter um sofá e um estofado limpos – eles podem transformar completamente a atmosfera de sua casa."
         ]
-    }, {
+    },
+    "colchoes": {
         "title": "Colchões",
         "description": [
             "Os colchões são mais do que simples peças de mobília – eles são a base da nossa saúde e bem-estar durante a noite. Passamos cerca de um terço de nossas vidas dormindo, o que significa que passamos muito tempo em contato direto com nosso colchão. No entanto, muitas pessoas não percebem que os colchões podem se tornar um foco de contaminantes, como ácaros, bactérias e suor. Por isso, a limpeza dos colchões é tão importante.",
@@ -23,7 +25,8 @@
             "Dormir em um colchão limpo e fresco pode ajudar a garantir uma noite de sono profundo e reparador, o que é fundamental para a nossa saúde geral. Além disso, ter um colchão limpo e arejado pode ajudar a manter o clima agradável e confortável em seu quarto, o que pode ter um impacto positivo na qualidade do seu sono.",
             "A limpeza dos colchões é crucial para a nossa saúde, bem-estar e qualidade do sono. Não subestime o poder de ter um colchão limpo e fresco – ele pode fazer toda a diferença na sua noite de sono e no seu bem-estar geral."
         ]
-    }, {
+    },
+    "cortinas-e-persianas": {
         "title": "Cortinas e <br />persianas",
         "description": [
             "As cortinas e persianas são elementos fundamentais na decoração de nossas casas, mas também são frequentemente esquecidos na hora da higienização. No entanto, estes itens estão sujeitos a acumular sujeira, poeira e outros contaminantes, prejudicando não apenas a aparência, mas também a saúde e bem-estar de nossa casa.",
@@ -31,7 +34,8 @@
             "Essa também é uma oportunidade de transformar seu ambiente, criando um espaço saudável e inspirador para você e sua família. Imagine ter cortinas e persianas brilhantes e frescas, livres de contaminantes, que ajudem a filtrar a luz e criem um clima aconchegante em seu lar. Isso pode fazer toda a diferença na sua qualidade de vida.",
             "Não deixe de investir na higienização de cortinas, que pode ter um impacto positivo significativo em sua vida e na de sua família."
         ]
-    }, {
+    },
+    "estofados-automotivos": {
         "title": "Estofados <br />automotivos",
         "description": [
             "Os estofados automotivos são muito mais do que simples assentos em seu carro. Eles são o seu escritório móvel, o seu quarto de hotel, e até mesmo a sua sala de estar. Mas, assim como qualquer outro espaço que você frequenta, eles também estão sujeitos a acumular sujeira, poeira, e outros contaminantes.",
@@ -39,7 +43,8 @@
             "Mas a higienização de estofados automotivos pode ser mais do que uma simples tarefa de limpeza. É uma oportunidade de transformar seu carro em um espaço acolhedor e confortável, onde você possa se sentir bem e trabalhar com eficiência. Imagine ter estofados limpos e frescos, que não apenas protejam sua saúde, mas também ajudem a preservar o valor do seu carro. Isso pode fazer toda a diferença em sua experiência ao dirigir.",
             "A higienização de estofados automotivos é uma oportunidade de transformar seu carro em um espaço mais saudável, confortável e valioso. Não deixe de investir nesta tarefa, que pode ter um impacto positivo significativo em sua vida e no seu bem-estar."
         ]
-    }, {
+    },
+    "hidratacao-de-couro": {
         "title": "Hidratação de <br />couro",
         "description": [
             "O couro é uma matéria-prima versátil e elegante, usada para revestir móveis, bolsas, sapatos e até mesmo carros. No entanto, muitas vezes damos pouca atenção à sua manutenção e, com o tempo, ele pode começar a se desgastar e perder sua aparência original. É aí que entra a importância da hidratação de couros.",
@@ -48,7 +53,8 @@
             "Além disso, a hidratação de couros é uma atitude sustentável. Ao preservarmos nossos objetos de couro por mais tempo, estamos evitando o desperdício e contribuindo para um futuro mais sustentável.",
             "A hidratação de couros é uma oportunidade de transformar objetos em peças únicas e valiosas, além de preservar sua aparência e protegê-los dos danos causados pelo tempo. Não deixe de investir nesta tarefa, que pode ter um impacto positivo significativo na sua vida e no meio ambiente."
         ]
-    }, {
+    },
+    "impermeabilizacao": {
         "title": "Impermeabilização",
         "description": [
             "Quem nunca experimentou a sensação de conforto de se sentar em um sofá acolhedor depois de um longo dia de trabalho? Mas, e se esse mesmo sofá estivesse molhado e cheio de manchas devido à chuva ou a um derramamento? Essa não é uma situação agradável, mas pode ser evitada com a impermeabilização de estofados.",
@@ -57,7 +63,8 @@
             "Além disso, a impermeabilização de estofados pode ser uma oportunidade de transformar um objeto convencional em algo único e inovador. Imagine sentar em um sofá impermeabilizado e sentir a suavidade do material, sem se preocupar com manchas ou umidade. Isso é conforto e elegância em perfeita harmonia.",
             "A impermeabilização de estofados é uma escolha inteligente, que oferece muitos benefícios tanto para sua casa quanto para o meio ambiente. Não deixe de investir nesta atividade importante, que pode transformar o seu estofado em uma peça única e valiosa."
         ]
-    }, {
+    },
+    "sanitizacao-e-ionizacao-de-ambientes": {
         "title": "Sanitização e <br />Ionização de <br />ambientes",
         "description": [
             "Vivemos em um mundo cada vez mais conectado e globalizado, onde viajamos constantemente e compartilhamos espaços com pessoas de todo o mundo. Em meio a tantos contatos, é importante cuidar da saúde e bem-estar de nossos ambientes. E é aí que entra a sanitização e ionização de ambientes.",
@@ -67,4 +74,4 @@
             "A sanitização e ionização de ambientes são escolhas importantes para manter a saúde, o bem-estar e a sustentabilidade de nossos espaços. Não deixe de investir nesta atividade importante, que pode transformar seus ambientes em lugares mais saudáveis, equilibrados e acolhedores."
         ]
     }
-]
+}
