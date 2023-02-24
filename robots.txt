@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://luxorclean.com.br/sitemap.xml
