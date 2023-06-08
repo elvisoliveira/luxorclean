@@ -4,7 +4,14 @@
         "title": "LuxorClean Higienização Premium",
         "description": "A LUXORCLEAN é uma empresa especializada em higienização e impermeabilização de estofados. Trabalhamos com sofás, colchões, cadeiras, poltronas, bancos automotivo e carpetes.",
         "support": "Estamos à disposição para tirar dúvidas à respeito de nossos serviços, preços e condições de pagamento.",
-        "address": "Rua dos Timbiras, 1936 - Lourdes, Belo Horizonte MG, 30140-061",
+        "author": "github.com/elvisoliveira",
+        "address": {
+            "street": "Rua dos Timbiras, 1936 - Lourdes",
+            "city": "Belo Horizonte",
+            "state": "MG",
+            "cep": "30140061",
+            "country": "BR"
+        },
         "social": {
             "facebook": "#",
             "twitter": "#",
@@ -18,6 +25,8 @@
         "keys": {
             "google_maps": "AIzaSyAAF72CZbUHIGolLDwpb48Q2s9YDmsBjTg",
             "google_analytics": "G-9RSF4R8EPX",
+            "meta_pixel": "270173065517921",
+            "bing": "517415B3934C36EF02BD52BB01821C9F",
             "formspree": "mpzbrkkn"
         },
         "cdn": "https://cdnjs.cloudflare.com/ajax/libs"

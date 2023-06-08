@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.jade",
     "scripts": {
-        "dev": "harp ./src & browser-sync start --proxy 'localhost:9000' --files './src/**/*.jade, ./src/**/*.scss, ./src/**/*.coffee'",
-        "deploy": "harp ./src/ ./dest/"
+        "dev": "harp ./src & browser-sync start --proxy '127.0.0.1:9000' --files './src/**/*.jade, ./src/**/*.scss, ./src/**/*.coffee'",
+        "deploy": "harp ./src/ ./dest/ && js-beautify --extra_liners noscript --replace ./dest/index.html"
     },
     "author": "elvis.olv@gmail.com",
     "license": "ISC",
@@ -14,6 +14,7 @@
         "harp": "^0.41.2"
     },
     "devDependencies": {
-        "coffeescript": "^2.6.1"
+        "coffeescript": "^2.6.1",
+        "prettier": "^2.8.8"
     }
 }

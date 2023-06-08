@@ -4,18 +4,25 @@ div#section-services {
         height: auto;
     }
     div#services {
-        background-color: #000;
+        @include respond-to(handhelds) {
+            padding-bottom: 25px;
+            float: left;
+        }
+        h2 {
+            display: none;
+        }
         dl {
-            margin-top: 50px;
+            margin: 30px 34px 0 0;
             cursor: pointer;
+            float: left;
             @include respond-to(handhelds) {
-                margin: 0;
+                margin: 25px 0 0 0;
+                width: 100%;
             }
             dd {
                 display: none;
             }
             dt {
-                margin-right: 34px;
                 float: left;
                 width: 230px;
                 height: 66px;
@@ -30,44 +37,42 @@ div#section-services {
                 background-repeat: no-repeat;
                 @include respond-to(handhelds) {
                     width: 100%;
-                    margin: 30px 0 0 0;
                 }
             }
-            &:nth-child(4n) dt {
+            &:nth-child(5n) , &:nth-child(9n){
                 margin-right: 0;
-                margin-bottom: 35px;
             }
-            &:nth-child(1) dt {
+            &:nth-child(2) dt {
                 background-image: url("assets/services/carpets-and-rugs.png");
                 background-position: center 30px;
             }
-            &:nth-child(2) dt {
+            &:nth-child(3) dt {
                 background-image: url("assets/services/futons-couches-and-upholstery.png");
                 background-position: center 34px;
             }
-            &:nth-child(3) dt {
+            &:nth-child(4) dt {
                 background-image: url("assets/services/mattresses.png");
                 background-position: center 27px;
             }
-            &:nth-child(4) dt {
+            &:nth-child(5) dt {
                 background-image: url("assets/services/curtains-and-blinds.png");
                 background-position: center 18px;
             }
-            &:nth-child(5) dt {
+            &:nth-child(6) dt {
                 background-image: url("assets/services/automotive-upholstery.png");
                 background-position: center 29px;
             }
-            &:nth-child(6) dt {
+            &:nth-child(7) dt {
                 background-image: url("assets/services/leather-hydration.png");
                 background-position: center 17px;
             }
-            &:nth-child(7) dt {
+            &:nth-child(8) dt {
                 background-image: url("assets/services/waterproofing.png");
                 background-position: center 27px;
                 padding-top: 197px;
                 height: 53px;
             }
-            &:nth-child(8) dt {
+            &:nth-child(9) dt {
                 background-image: url("assets/services/sanitization-and-ionization-of-environments.png");
                 background-position: center 24px;
                 padding-top: 168px;

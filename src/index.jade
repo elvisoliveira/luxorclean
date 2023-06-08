@@ -1,11 +1,95 @@
-<!-- by: github.com/elvisoliveira -->
+<!-- by: #{ author } -->
 doctype strict
 html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br')
   head
+    meta(charset="utf-8")
+
+    link(rel='canonical', href='#{ url }')
+
     meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     meta(name='description' content='#{ description }')
+    meta(name='author', content='#{ author }')
     meta(name='robots' content='index,follow')
     meta(http-equiv='content-type' content='text/html; charset=utf-8')
+
+    meta(property='og:locale' content='pt_BR')
+    meta(property='og:type' content='website')
+    meta(property='og:title' content='#{ title }')
+    meta(property='og:description' content='#{ description }')
+    meta(property='og:url' content='#{ url }')
+    meta(property='og:site_name' content='#{ title }')
+    meta(property='og:image' content='#{ url }assets/cover.jpg')
+    meta(property='og:image:width' content='730')
+    meta(property='og:image:height' content='730')
+    meta(property='og:image:alt' content='#{ title }')
+    meta(property='og:image:type' content='image/jpeg')
+    - date = (new Date()).toISOString()
+    meta(property='og:updated_time' content='#{ date }')
+
+    meta(property='twitter:title' content='#{ title }')
+    meta(property='twitter:description' content='#{ description }')
+    meta(property='twitter:image' content='#{ url }assets/cover.jpg')
+    meta(property='twitter:image:width' content='730')
+    meta(property='twitter:image:height' content='730')
+    meta(property='twitter:card' content='summary_large_image')
+    meta(property='twitter:creator' content='@elvisoliveira')
+
+    meta(name='msvalidate.01' content='#{ keys.bing }')
+
+    != partial("linkeddata")
+    script(type='application/ld+json').
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": [
+                    "ProfessionalService",
+                    "LocalBusiness"
+                ],
+                "@id": "#{ url }#organization",
+                "name": "#{ title }",
+                "url": "#{ url }",
+                "email": "#{ contact.email }",
+                "logo": {
+                    "@type": "ImageObject",
+                    "@id": "#{ url }#logo",
+                    "url": "#{ url }assets/cover.jpg",
+                    "contentUrl": "#{ url }assets/cover.jpg",
+                    "caption": "#{ description }",
+                    "inLanguage": "pt-BR",
+                    "width": "730",
+                    "height": "730"
+                },
+                "openingHours": [
+                    "Monday, Tuesday, Wednesday, Thursday, Friday 08:00-18:00"
+                ],
+                "openingHoursSpecification": [{
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                }],
+                "telephone": "+5531971486999",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "#{ address.street }",
+                    "addressLocality": "#{ address.city }",
+                    "addressRegion": "#{ address.state }",
+                    "postalCode": "#{ address.cep }",
+                    "addressCountry": "#{ address.country }"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "-19.926238",
+                    "longitude": "-43.94081"
+                },
+                "sameAs" : [
+                    "#{ social.instagram }"
+                ],
+                "image": [
+                    "#{ url }assets/cover.jpg"
+                ]
+            }]
+        }
 
     script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js')
     script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js')
@@ -22,7 +106,31 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
 
     script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }')
     script.
-        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '#{ keys.google_analytics }');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '#{ keys.google_analytics }');
+    script.
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '#{ keys.meta_pixel }');
+        fbq('track', 'PageView');
+    noscript
+        img(height='1' width='1' src='https://www.facebook.com/tr?id=#{ keys.meta_pixel }&ev=PageView&noscript=1')
   body
     #section-header
       #header
@@ -37,15 +145,17 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     #section-banner
       #banner
         dl
-          dt Limpeza de estofados em Belo Horizonte e região
+          dt
+            h1 Limpeza de estofados em Belo Horizonte e região
           dd
-            p
+            h2
               | #{ description } #[br]
             a(href='#section-contact') Solicite um orçamento
     #section-social
       #social
         dl
-          dt WhatsApp e Instagram
+          dt
+            h2 WhatsApp e Instagram
           dd
             | #{ support }
         a.instagram(href='#{ social.instagram }' target='_blank') Instagram
@@ -53,16 +163,19 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     #section-portifolio
       #portifolio
         dl
-          dt Trabalhos realizados...
-          dd Confira nossos ultimos trabalhos!
+          dt
+            h2 Trabalhos realizados...
+          dd Confira nossos últimos trabalhos!
       #portifolio-gallery
         ul
-          each _, i in Array(28)
+          for picture, i in public.pictures._data
             li
               a(href='#')
-                img(src=(`pictures/${i}.jpg`))
+                - file = String(i).padStart(2, '0')
+                img(src=(`pictures/${file}.jpg`) alt=(`${picture}`))
     #section-services
       #services
+        h2 Serviços
         for post, id in public.services._data
           dl(data-fancybox data-src=`#${id}` data-width=700 data-height=500)
             dt !{ post.title }
@@ -72,14 +185,15 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     #section-contact
       #contact
         dl.form
-          dt Contato por email
+          dt
+            h2 Contato por email
           dd
             form(action='https://formspree.io/f/#{ keys.formspree }' method='POST')
               fieldset
                 each label, key in { 'name': 'Nome', 'phone': 'Telefone', 'mail': 'Email', 'message': 'Mensagem' }
                   dl
                     dt
-                      label(for=key) label
+                      label(for=key) #{ label }
                     dd
                       - if (key == 'message') {
                       textarea(name=key placeholder=label)
@@ -87,7 +201,8 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                       input(type='text' name=key placeholder=label)
                       - }
         dl.head
-          dt Entre em contato
+          dt
+            h2 Entre em contato
           dd
             | #{ support }
         dl.info
@@ -99,15 +214,17 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                 dt #{ label }
                 dd #{ value }
         dl.address
-          dt Endereço
+          dt
+            h2 Endereço
           dd
-            address #{ address }
+            address #{ address.street } #{ address.city } #{ address.state }
     #section-map
-      iframe(src='https://maps.google.com/maps?q=#{ address }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
+      iframe(src='https://maps.google.com/maps?q=#{ address.street } #{ address.city } #{ address.state }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
       #footer
         .copyright
-          p © 2023 Luxorclean, todos os direitos reservados.
+          - year = new Date().getFullYear()
+          p © #{ year } Luxorclean, todos os direitos reservados.
         .social-networks
           ul
             each link, name in social
