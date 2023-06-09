@@ -2,7 +2,7 @@
 doctype strict
 html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br')
   head
-    meta(charset="utf-8")
+    meta(charset='utf-8')
 
     link(rel='canonical', href='#{ url }')
 
@@ -38,6 +38,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     meta(name='msvalidate.01' content='#{ keys.bing }')
 
     != partial("linkeddata")
+
     script(type='application/ld+json').
         {
             "@context": "https://schema.org",
@@ -101,12 +102,14 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
         .logo
           a(href='/')
             picture
-              source(type="image/webp" srcset=(`assets/img/logo.webp`))
-              source(type="image/png" srcset=(`assets/img/logo.png`))
+              source(type='image/webp' srcset=(`assets/img/logo.webp`))
+              source(type='image/png' srcset=(`assets/img/logo.png`))
               img(src=(`assets/img/logo.png`) alt='#{ title }')
         .menu
           ul
-            each menu, key in { 'services': 'Serviços', 'contact': 'Contato', 'faq': 'FAQ' }
+            li
+              a(data-fancybox href='#section-faq' data-src='#section-faq' data-width=700 data-height=500) FAQ
+            each menu, key in { 'services': 'Serviços', 'contact': 'Contato' }
               li
                 a(href='#section-' + key) #{ menu }
     #section-banner
@@ -137,11 +140,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
         div.collection
           for picture, i in public.pictures._data
             div.photo
-              a(href=(`${picture.href}`) target="_blank")
+              a(href=(`${picture.href}`) target='_blank')
                 picture
-                  source(type="image/webp" srcset=(`pictures/${picture.src}.webp`))
-                  source(type="image/jpeg" srcset=(`pictures/${picture.src}.jpg`))
-                  img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) loading="lazy")
+                  source(type='image/webp' srcset=(`pictures/${picture.src}.webp`))
+                  source(type='image/jpeg' srcset=(`pictures/${picture.src}.jpg`))
+                  img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) loading='lazy')
     #section-services
       #services
         h2(aria-hidden='true') Serviços
@@ -151,6 +154,14 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             dd(id=id)
               for paragraph in post.description
                 p #{ paragraph }
+    #section-faq(aria-hidden='true')
+      ul(itemscope='' itemtype='https://schema.org/FAQPage')
+        for faq, i in public.faq._data
+          li
+            dl(itemscope='' itemprop='mainEntity' itemtype='https://schema.org/Question')
+              dt(itemprop='name') #{ faq.question }
+              dd(itemscope='' itemprop='acceptedAnswer' itemtype='https://schema.org/Answer')
+                p(itemprop='text') #{ faq.answer }
     #section-contact
       #contact
         dl.form
@@ -211,7 +222,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     script(type='text/javascript' src='#{ cdn }/slick-carousel/1.8.1/slick.min.js')
 
     script(type='text/javascript' src='gallery.js')
-    script(type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }' async)
+    script(type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }' async='')
     script.
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
