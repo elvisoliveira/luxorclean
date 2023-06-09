@@ -59,14 +59,16 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                     "width": "730",
                     "height": "730"
                 },
-                "openingHours": [
-                    "Monday, Tuesday, Wednesday, Thursday, Friday 08:00-18:00"
-                ],
                 "openingHoursSpecification": [{
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                     "opens": "08:00",
                     "closes": "18:00"
+                }, {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Saturday"],
+                    "opens": "08:00",
+                    "closes": "12:00"
                 }],
                 "telephone": "+5531971486999",
                 "address": {
@@ -91,11 +93,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             }]
         }
 
-    script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js')
-    script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js')
-
-    link(rel='stylesheet' type='text/css' href='master.css')
-    link(rel='stylesheet' type='text/css' href='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.css')
+    link(rel='stylesheet' type='text/css' media='screen' href='master.css')
 
     title #{ title }
 
@@ -104,39 +102,15 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     link(rel='icon' type='image/png' sizes='16x16' href='assets/favicon-16x16.png')
     link(rel='manifest' href='assets/site.webmanifest')
 
-    script(async='' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }')
-    script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', '#{ keys.google_analytics }');
-    script.
-        !function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '#{ keys.meta_pixel }');
-        fbq('track', 'PageView');
-    noscript
-        img(height='1' width='1' src='https://www.facebook.com/tr?id=#{ keys.meta_pixel }&ev=PageView&noscript=1')
   body
     #section-header
       #header
         .logo
           a(href='/')
-            img(src='assets/img/logo.png' alt='#{ title }')
+            picture
+              source(type="image/webp" srcset=(`assets/img/logo.webp`))
+              source(type="image/png" srcset=(`assets/img/logo.png`))
+              img(src=(`assets/img/logo.png`) alt='#{ title }')
         .menu
           ul
             each menu, key in { 'services': 'Serviços', 'contact': 'Contato', 'faq': 'FAQ' }
@@ -170,9 +144,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
         ul
           for picture, i in public.pictures._data
             li
-              a(href='#')
-                - file = String(i).padStart(2, '0')
-                img(src=(`pictures/${file}.jpg`) alt=(`${picture}`))
+              a(href=(`${picture.href}`) target="_blank")
+                picture
+                  source(type="image/webp" srcset=(`pictures/${picture.src}.webp`))
+                  source(type="image/jpeg" srcset=(`pictures/${picture.src}.jpg`))
+                  img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) loading="lazy")
     #section-services
       #services
         h2 Serviços
@@ -230,4 +206,42 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             each link, name in social
               li
                 a(class=name href=link) #{ name }
+
+    link(rel='stylesheet' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Muli:400')
+
+    link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.css')
+    link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/slick-carousel/1.8.1/slick.min.css')
+    link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/slick-carousel/1.8.1/slick-theme.min.css')
+
+    script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js')
+    script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js')
+    script(type='text/javascript' src='#{ cdn }/slick-carousel/1.8.1/slick.min.js')
+
     script(type='text/javascript' src='gallery.js')
+    script(type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }')
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '#{ keys.google_analytics }');
+    script.
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '#{ keys.meta_pixel }');
+        fbq('track', 'PageView');
+    noscript
+        img(height='1' width='1' src='https://www.facebook.com/tr?id=#{ keys.meta_pixel }&ev=PageView&noscript=1')

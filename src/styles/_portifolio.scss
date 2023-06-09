@@ -3,6 +3,7 @@ div#section-portifolio {
     background-color: #FFF;
     @include respond-to(handhelds) {
         height: auto;
+        padding-bottom: 50px;
     }
     div#portifolio {
         margin-top: 50px;
@@ -24,23 +25,19 @@ div#section-portifolio {
         @extend %clear;
         overflow: hidden;
         position: relative;
-        height: 232px;
         margin-top: 17px;
         ul {
             font-size: 0;
-            position: absolute;
-            top: 0px;
-            width: auto;
             overflow: hidden;
             white-space: nowrap;
+            height: 232px;
             li {
                 list-style: none;
                 display: inline-block;
                 a {
                     float: left;
                     img {
-                    float: left;
-                        height: 232px;
+                        float: left;
                     }
                 }
             }

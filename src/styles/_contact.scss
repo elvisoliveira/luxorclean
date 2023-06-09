@@ -55,7 +55,14 @@ div#section-contact {
                     }
                     &:before {
                         background-color: $blue;
-                        background-image: url("assets/icons/social-networks.png");
+                        background-image: -webkit-image-set(
+                            url("assets/icons/social-networks.png") type("image/png"),
+                            url("assets/icons/social-networks.webp") type("image/webp")
+                        );
+                        background-image: image-set(
+                            url("assets/icons/social-networks.png") type("image/png"),
+                            url("assets/icons/social-networks.webp") type("image/webp")
+                        );
                         background-repeat: no-repeat;
                         width: 46px;
                         height: 46px;

@@ -14,9 +14,6 @@ $break-small: 1024px;
     width: device-width;
 }
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
-
 /* Mixins ************************************/
 @mixin centralize($width) {
     left: 50%;
@@ -41,7 +38,12 @@ $break-small: 1024px;
     font-family: $font-master;
 }
 body {
-    background: url("assets/img/background.png");
+    background-image: -webkit-image-set(
+        url("assets/img/background.png") type("image/png"),
+        url("assets/img/background.webp") type("image/webp"));
+    background-image: image-set(
+        url("assets/img/background.png") type("image/png"),
+        url("assets/img/background.webp") type("image/webp"));
     > div {
         @extend %clear;
         > div:nth-child(1) {

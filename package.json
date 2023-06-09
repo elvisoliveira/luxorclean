@@ -5,7 +5,8 @@
     "main": "index.jade",
     "scripts": {
         "dev": "harp ./src & browser-sync start --proxy '127.0.0.1:9000' --files './src/**/*.jade, ./src/**/*.scss, ./src/**/*.coffee'",
-        "deploy": "harp ./src/ ./dest/ && js-beautify --extra_liners noscript --replace ./dest/index.html"
+        "deploy": "harp ./src/ ./dest/ && npm run beautify",
+        "beautify": "find ./dest/ -iregex '.*\\.\\(xml\\|html\\)' | xargs npx html-beautify --preserve-newlines --replace"
     },
     "author": "elvis.olv@gmail.com",
     "license": "ISC",

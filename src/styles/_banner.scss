@@ -2,7 +2,14 @@ div#section-banner {
     div#banner {
         height: 408px;
         padding-top: 82px;
-        background-image: url("assets/img/home.png");
+        background-image: -webkit-image-set(
+            url("assets/img/home.png") type("image/png"),
+            url("assets/img/home.webp") type("image/webp")
+        );
+        background-image: image-set(
+            url("assets/img/home.png") type("image/png"),
+            url("assets/img/home.webp") type("image/webp")
+        );
         background-repeat: no-repeat;
         background-position: 432px 31px;
         @include respond-to(handhelds) {
