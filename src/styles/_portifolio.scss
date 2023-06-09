@@ -26,12 +26,12 @@ div#section-portifolio {
         overflow: hidden;
         position: relative;
         margin-top: 17px;
-        ul {
+        div.collection {
             font-size: 0;
             overflow: hidden;
             white-space: nowrap;
             height: 232px;
-            li {
+            div.photo {
                 list-style: none;
                 display: inline-block;
                 a {

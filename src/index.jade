@@ -6,10 +6,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
 
     link(rel='canonical', href='#{ url }')
 
-    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=2.0')
     meta(name='description' content='#{ description }')
     meta(name='author', content='#{ author }')
     meta(name='robots' content='index,follow')
+    meta(name='theme-color' content='#303659')
     meta(http-equiv='content-type' content='text/html; charset=utf-8')
 
     meta(property='og:locale' content='pt_BR')
@@ -141,9 +142,9 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             h2 Trabalhos realizados...
           dd Confira nossos últimos trabalhos!
       #portifolio-gallery
-        ul
+        div.collection
           for picture, i in public.pictures._data
-            li
+            div.photo
               a(href=(`${picture.href}`) target="_blank")
                 picture
                   source(type="image/webp" srcset=(`pictures/${picture.src}.webp`))
@@ -151,7 +152,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                   img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) loading="lazy")
     #section-services
       #services
-        h2 Serviços
+        h2(aria-hidden='true') Serviços
         for post, id in public.services._data
           dl(data-fancybox data-src=`#${id}` data-width=700 data-height=500)
             dt !{ post.title }
@@ -168,7 +169,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
               fieldset
                 each label, key in { 'name': 'Nome', 'phone': 'Telefone', 'mail': 'Email', 'message': 'Mensagem' }
                   dl
-                    dt
+                    dt(aria-hidden='true')
                       label(for=key) #{ label }
                     dd
                       - if (key == 'message') {
@@ -195,7 +196,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd
             address #{ address.street } #{ address.city } #{ address.state }
     #section-map
-      iframe(src='https://maps.google.com/maps?q=#{ address.street } #{ address.city } #{ address.state }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
+      iframe(title='Google Maps' src='https://maps.google.com/maps?q=#{ address.street } #{ address.city } #{ address.state }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
       #footer
         .copyright
@@ -207,18 +208,18 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
               li
                 a(class=name href=link) #{ name }
 
-    link(rel='stylesheet' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Rubik')
+    link(rel='preload' as='font' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Rubik&display=swap')
 
     link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.css')
     link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/slick-carousel/1.8.1/slick.min.css')
     link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/slick-carousel/1.8.1/slick-theme.min.css')
 
-    script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js')
-    script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js')
-    script(type='text/javascript' src='#{ cdn }/slick-carousel/1.8.1/slick.min.js')
+    script(type='text/javascript' src='#{ cdn }/jquery/3.6.0/jquery.min.js' async)
+    script(type='text/javascript' src='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.js' async)
+    script(type='text/javascript' src='#{ cdn }/slick-carousel/1.8.1/slick.min.js' async)
 
-    script(type='text/javascript' src='gallery.js')
-    script(type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }')
+    script(type='text/javascript' src='gallery.js' async)
+    script(type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=#{ keys.google_analytics }' async)
     script.
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
