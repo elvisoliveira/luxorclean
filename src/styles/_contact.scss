@@ -54,15 +54,8 @@ div#section-contact {
                         margin: 0;
                     }
                     &:before {
+                        @include bg-image("assets/icons/social-networks");
                         background-color: $blue;
-                        background-image: -webkit-image-set(
-                            url("assets/icons/social-networks.png") type("image/png"),
-                            url("assets/icons/social-networks.webp") type("image/webp")
-                        );
-                        background-image: image-set(
-                            url("assets/icons/social-networks.png") type("image/png"),
-                            url("assets/icons/social-networks.webp") type("image/webp")
-                        );
                         background-repeat: no-repeat;
                         width: 46px;
                         height: 46px;
@@ -100,8 +93,8 @@ div#section-contact {
                     width: 180px;
                 }
                 &:before {
+                    @include bg-image("assets/icons/social-networks");
                     background-color: $blue;
-                    background-image: url("assets/icons/social-networks.png");
                     background-repeat: no-repeat;
                     background-position: -31px 15px;
                     width: 46px;

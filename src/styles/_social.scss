@@ -51,12 +51,12 @@ div#section-social {
                 @include respond-to(handhelds) {
                     float: left;
                 }
+                @include bg-image("assets/icons/instagram");
                 margin-right: 90px;
-                background-image: url("assets/icons/instagram.png");
             }
             &.whatsapp {
+                @include bg-image("assets/icons/whatsapp");
                 margin-right: 39px;
-                background-image: url("assets/icons/whatsapp.png");
             }
         }
     }

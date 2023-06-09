@@ -33,11 +33,11 @@ div#section-footer {
                         margin: 0;
                     }
                     a {
+                        @include bg-image("assets/icons/social-networks");
                         float: left;
                         width: 20px;
                         height: 20px;
                         text-indent: -3000em;
-                        background-image: url("assets/icons/social-networks.png");
                         background-repeat: no-repeat;
                         &.facebook {
                             background-position: -145px 2px;

@@ -30,6 +30,16 @@ $break-small: 1024px;
     }
 }
 
+@mixin bg-image($file) {
+    background-image: url($file + ".png");
+    background-image: -webkit-image-set(
+        url($file + ".png") type("image/png"),
+        url($file + ".webp") type("image/webp"));
+    background-image: image-set(
+        url($file + ".png") type("image/png"),
+        url($file + ".webp") type("image/webp"));
+}
+
 /* Assets ************************************/
 * {
     margin: 0;
@@ -37,12 +47,7 @@ $break-small: 1024px;
     font-family: $font-master;
 }
 body {
-    background-image: -webkit-image-set(
-        url("assets/img/background.png") type("image/png"),
-        url("assets/img/background.webp") type("image/webp"));
-    background-image: image-set(
-        url("assets/img/background.png") type("image/png"),
-        url("assets/img/background.webp") type("image/webp"));
+    @include bg-image("assets/img/background");
     > div {
         @extend %clear;
         > div:nth-child(1) {

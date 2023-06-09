@@ -43,93 +43,37 @@ div#section-services {
                 margin-right: 0;
             }
             &:nth-child(2) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/carpets-and-rugs.png") type("image/png"),
-                    url("assets/services/carpets-and-rugs.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/carpets-and-rugs.png") type("image/png"),
-                    url("assets/services/carpets-and-rugs.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/carpets-and-rugs");
                 background-position: center 30px;
             }
             &:nth-child(3) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/futons-couches-and-upholstery.png") type("image/png"),
-                    url("assets/services/futons-couches-and-upholstery.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/futons-couches-and-upholstery.png") type("image/png"),
-                    url("assets/services/futons-couches-and-upholstery.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/futons-couches-and-upholstery");
                 background-position: center 34px;
             }
             &:nth-child(4) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/mattresses.png") type("image/png"),
-                    url("assets/services/mattresses.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/mattresses.png") type("image/png"),
-                    url("assets/services/mattresses.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/mattresses");
                 background-position: center 27px;
             }
             &:nth-child(5) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/curtains-and-blinds.png") type("image/png"),
-                    url("assets/services/curtains-and-blinds.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/curtains-and-blinds.png") type("image/png"),
-                    url("assets/services/curtains-and-blinds.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/curtains-and-blinds");
                 background-position: center 18px;
             }
             &:nth-child(6) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/automotive-upholstery.png") type("image/png"),
-                    url("assets/services/automotive-upholstery.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/automotive-upholstery.png") type("image/png"),
-                    url("assets/services/automotive-upholstery.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/automotive-upholstery");
                 background-position: center 29px;
             }
             &:nth-child(7) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/leather-hydration.png") type("image/png"),
-                    url("assets/services/leather-hydration.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/leather-hydration.png") type("image/png"),
-                    url("assets/services/leather-hydration.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/leather-hydration");
                 background-position: center 17px;
             }
             &:nth-child(8) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/waterproofing.png") type("image/png"),
-                    url("assets/services/waterproofing.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/waterproofing.png") type("image/png"),
-                    url("assets/services/waterproofing.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/waterproofing");
                 background-position: center 27px;
                 padding-top: 197px;
                 height: 53px;
             }
             &:nth-child(9) dt {
-                background-image: -webkit-image-set(
-                    url("assets/services/sanitization-and-ionization-of-environments.png") type("image/png"),
-                    url("assets/services/sanitization-and-ionization-of-environments.webp") type("image/webp")
-                );
-                background-image: image-set(
-                    url("assets/services/sanitization-and-ionization-of-environments.png") type("image/png"),
-                    url("assets/services/sanitization-and-ionization-of-environments.webp") type("image/webp")
-                );
+                @include bg-image("assets/services/sanitization-and-ionization-of-environments");
                 background-position: center 24px;
                 padding-top: 168px;
                 height: 82px;
