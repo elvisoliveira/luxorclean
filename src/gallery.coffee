@@ -1,4 +1,4 @@
-$ ->
+jQuery ->
   jQuery.event.special.touchstart = setup: (_, ns, handle) ->
     @addEventListener 'touchstart', handle, passive: !ns.includes('noPreventDefault')
     return
