@@ -41,57 +41,49 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     script(type='application/ld+json').
         {
             "@context": "https://schema.org",
-            "@graph": [{
-                "@type": [
-                    "ProfessionalService",
-                    "LocalBusiness"
-                ],
-                "@id": "#{ url }#organization",
-                "name": "#{ title }",
-                "url": "#{ url }",
-                "email": "#{ contact.email }",
-                "logo": {
-                    "@type": "ImageObject",
-                    "@id": "#{ url }#logo",
-                    "url": "#{ url }assets/cover.jpg",
-                    "contentUrl": "#{ url }assets/cover.jpg",
-                    "caption": "#{ description }",
-                    "inLanguage": "pt-BR",
-                    "width": "730",
-                    "height": "730"
-                },
-                "openingHoursSpecification": [{
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    "opens": "08:00",
-                    "closes": "18:00"
-                }, {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Saturday"],
-                    "opens": "08:00",
-                    "closes": "12:00"
-                }],
-                "telephone": "+5531971486999",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "#{ address.street }",
-                    "addressLocality": "#{ address.city }",
-                    "addressRegion": "#{ address.state }",
-                    "postalCode": "#{ address.cep }",
-                    "addressCountry": "#{ address.country }"
-                },
-                "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "-19.926238",
-                    "longitude": "-43.94081"
-                },
-                "sameAs" : [
-                    "#{ social.instagram }"
-                ],
-                "image": [
-                    "#{ url }assets/cover.jpg"
-                ]
-            }]
+            "@type": "Organization",
+            "url": "#{ url }",
+            "logo": "#{ url }assets/cover.jpg"
+        }
+
+    script(type='application/ld+json').
+        {
+            "@context": "https://schema.org",
+            "@type": "DryCleaningOrLaundry",
+            "name": "#{ title }",
+            "url": "#{ url }",
+            "email": "#{ contact.email }",
+            "telephone": "+5531971486999",
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            }, {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "08:00",
+                "closes": "12:00"
+            }],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "#{ address.street }",
+                "addressLocality": "#{ address.city }",
+                "addressRegion": "#{ address.state }",
+                "postalCode": "#{ address.cep }",
+                "addressCountry": "#{ address.country }"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "-19.926238",
+                "longitude": "-43.94081"
+            },
+            "sameAs" : [
+                "#{ social.instagram }"
+            ],
+            "image": [
+                "#{ url }assets/cover.jpg"
+            ]
         }
 
     link(rel='stylesheet' type='text/css' media='screen' href='master.css')
@@ -208,7 +200,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
               li
                 a(class=name href=link) #{ name }
 
-    link(rel='preload' as='font' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Rubik&display=swap')
+    link(rel='stylesheet' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Rubik&display=swap')
 
     link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/fancybox/3.5.7/jquery.fancybox.min.css')
     link(rel='stylesheet' type='text/css' media='screen' href='#{ cdn }/slick-carousel/1.8.1/slick.min.css')
