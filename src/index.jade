@@ -1,6 +1,6 @@
 <!-- by: #{ author } -->
 doctype strict
-html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br')
+html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br' prefix='og: http://ogp.me/ns#')
   head
     meta(charset='utf-8')
 
@@ -42,41 +42,43 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     script(type='application/ld+json').
         {
             "@context": "https://schema.org",
-            "@type": "DryCleaningOrLaundry",
-            "name": "#{ title }",
-            "url": "#{ url }",
-            "email": "#{ contact.email }",
-            "telephone": "#{ contact.phone }",
-            "openingHoursSpecification": [{
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "08:00",
-                "closes": "18:00"
+            "@graph": [{
+                "@type": ["LocalBusiness", "DryCleaningOrLaundry"],
+                "name": "#{ title }",
+                "url": "#{ url }",
+                "telephone": "#{ contact.phone }",
+                "openingHoursSpecification": [{
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                }, {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Saturday"],
+                    "opens": "08:00",
+                    "closes": "12:00"
+                }],
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "#{ address.street }",
+                    "addressLocality": "#{ address.city }",
+                    "addressRegion": "#{ address.state }",
+                    "postalCode": "#{ address.cep }",
+                    "addressCountry": "#{ address.country }"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": #{ address.latitude },
+                    "longitude": #{ address.longitude }
+                },
+                "image": [
+                    "#{ url }assets/cover.jpg"
+                ]
             }, {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Saturday"],
-                "opens": "08:00",
-                "closes": "12:00"
-            }],
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "#{ address.street }",
-                "addressLocality": "#{ address.city }",
-                "addressRegion": "#{ address.state }",
-                "postalCode": "#{ address.cep }",
-                "addressCountry": "#{ address.country }"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "#{ address.latitude }",
-                "longitude": "#{ address.longitude }"
-            },
-            "sameAs" : [
-                "#{ social.instagram }"
-            ],
-            "image": [
-                "#{ url }assets/cover.jpg"
-            ]
+                "@type": "Organization",
+                "url": "#{ url }",
+                "logo": "#{ url }assets/cover.jpg"
+            }]
         }
 
     link(rel='stylesheet' type='text/css' media='screen' href='master.css')
@@ -87,6 +89,9 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     link(rel='icon' type='image/png' sizes='32x32' href='assets/favicon-32x32.png')
     link(rel='icon' type='image/png' sizes='16x16' href='assets/favicon-16x16.png')
     link(rel='manifest' href='assets/site.webmanifest')
+
+    link(rel='canonical' href='#{ url }')
+    link(rel='shortlink' href='#{ url }')
 
   body
     #section-header
