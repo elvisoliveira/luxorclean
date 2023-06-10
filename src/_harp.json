@@ -10,7 +10,9 @@
             "city": "Belo Horizonte",
             "state": "MG",
             "cep": "30140061",
-            "country": "BR"
+            "country": "BR",
+            "latitude": "-19.926238",
+            "longitude": "-43.94081"
         },
         "social": {
             "facebook": "#",

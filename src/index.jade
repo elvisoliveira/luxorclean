@@ -42,19 +42,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
     script(type='application/ld+json').
         {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "url": "#{ url }",
-            "logo": "#{ url }assets/cover.jpg"
-        }
-
-    script(type='application/ld+json').
-        {
-            "@context": "https://schema.org",
             "@type": "DryCleaningOrLaundry",
             "name": "#{ title }",
             "url": "#{ url }",
             "email": "#{ contact.email }",
-            "telephone": "+5531971486999",
+            "telephone": "#{ contact.phone }",
             "openingHoursSpecification": [{
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -76,8 +68,8 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "-19.926238",
-                "longitude": "-43.94081"
+                "latitude": "#{ address.latitude }",
+                "longitude": "#{ address.longitude }"
             },
             "sameAs" : [
                 "#{ social.instagram }"
