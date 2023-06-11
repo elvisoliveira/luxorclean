@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.jade",
     "scripts": {
-        "dev": "harp ./src & browser-sync start --proxy '127.0.0.1:9000' --files './src/**/*.jade, ./src/**/*.scss, ./src/**/*.coffee'",
+        "dev": "harp ./src & browser-sync start --config browserSync.js",
         "deploy": "harp ./src/ ./dest/ && npm run beautify",
         "beautify": "find ./dest/ -iregex '.*\\.\\(xml\\|html\\)' | xargs npx html-beautify --preserve-newlines --replace"
     },
@@ -16,6 +16,6 @@
     },
     "devDependencies": {
         "coffeescript": "^2.6.1",
-        "prettier": "^2.8.8"
+        "js-beautify": "^1.14.8"
     }
 }
