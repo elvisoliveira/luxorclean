@@ -1,12 +1,10 @@
 <!-- by: #{ author } -->
 doctype strict
-html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br' prefix='og: http://ogp.me/ns#' vocab='https://schema.org/' typeof='DryCleaningOrLaundry')
+html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br' prefix='og: http://ogp.me/ns#')
   head
     meta(charset='utf-8')
 
-    link(rel='canonical' href='#{ url }')
-
-    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=2.0')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(name='description' content='#{ description }')
     meta(name='author', content='#{ author }')
     meta(name='robots' content='index,follow')
@@ -43,6 +41,38 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
         {
             "@context": "https://schema.org",
             "@graph": [{
+                "@type": ["LocalBusiness", "DryCleaningOrLaundry"],
+                "name": "#{ title }",
+                "url": "#{ url }",
+                "telephone": "#{ contact.phone }",
+                "openingHoursSpecification": [{
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                }, {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Saturday"],
+                    "opens": "08:00",
+                    "closes": "12:00"
+                }],
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "#{ address.street }",
+                    "addressLocality": "#{ address.city }",
+                    "addressRegion": "#{ address.state }",
+                    "postalCode": "#{ address.cep }",
+                    "addressCountry": "#{ address.country }"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": #{ address.latitude },
+                    "longitude": #{ address.longitude }
+                },
+                "image": [
+                    "#{ url }assets/cover.jpg"
+                ]
+            }, {
                 "@type": "Organization",
                 "url": "#{ url }",
                 "logo": "#{ url }assets/cover.jpg"
@@ -51,18 +81,21 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
 
     link(rel='stylesheet' type='text/css' media='screen' href='master.css')
 
-    title(property="name") #{ title }
+    title #{ title }
 
     link(rel='apple-touch-icon' sizes='180x180' href='assets/apple-touch-icon.png')
     link(rel='icon' type='image/png' sizes='32x32' href='assets/favicon-32x32.png')
     link(rel='icon' type='image/png' sizes='16x16' href='assets/favicon-16x16.png')
     link(rel='manifest' href='assets/site.webmanifest')
 
+    link(rel='canonical' href='#{ url }')
+    link(rel='shortlink' href='#{ url }')
+
   body
     #section-header
       #header
         .logo
-          a(href='#{ url }' property='url')
+          a(href='#{ url }')
             picture
               source(type='image/webp' srcset=(`assets/img/logo.webp`))
               source(type='image/png' srcset=(`assets/img/logo.png`))
@@ -106,7 +139,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                 picture
                   source(type='image/webp' srcset=(`pictures/${picture.src}.webp`))
                   source(type='image/jpeg' srcset=(`pictures/${picture.src}.jpg`))
-                  img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) loading='lazy')
+                  img(src=(`pictures/${picture.src}.jpg`) alt=(`${picture.img}`) width=(`${picture.width}`) height=(`${picture.height}`) loading='lazy')
     #section-services
       #services
         h2(aria-hidden='true') Serviços
@@ -152,19 +185,14 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd
             each value, label in contact
               dl(class=label)
-                - labelc = label.charAt(0).toUpperCase() + label.slice(1);
-                dt #{ labelc }
-                dd(property="#{ label }") #{ value }
+                - label = label.charAt(0).toUpperCase() + label.slice(1);
+                dt #{ label }
+                dd #{ value }
         dl.address
           dt
             h2 Endereço
           dd
-            address(property="address" typeof="PostalAddress")
-              span(property="streetAddress") #{ address.street } 
-              span(property="addressLocality") #{ address.city } 
-              span(property="addressRegion") #{ address.state } 
-              span(property="postalCode") #{ address.cep } 
-              span(property="addressCountry") #{ address.country } 
+            address #{ address.street } #{ address.city } #{ address.state }
     #section-map
       iframe(title='Google Maps' src='https://maps.google.com/maps?q=#{ address.street } #{ address.city } #{ address.state }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
