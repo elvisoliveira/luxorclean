@@ -1,4 +1,5 @@
 const beautify = require('js-beautify').html;
+const config = require('./.beautify.json');
 module.exports = {
     files: ['./src/**/*.jade', './src/**/*.scss', './src/**/*.coffee'],
     proxy: {
@@ -8,7 +9,7 @@ module.exports = {
                 if(req.originalUrl == '/') {
                     let html;
                     proxyRes.on('data', data => {
-                        html = beautify(data.toString());
+                        html = beautify(data.toString(), config);
                     });
                     proxyRes.on('end', () => {
                         res.data = html;

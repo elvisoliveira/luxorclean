@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "harp ./src & browser-sync start --config browserSync.js",
         "deploy": "harp ./src/ ./dest/ && npm run beautify",
-        "beautify": "find ./dest/ -iregex '.*\\.\\(xml\\|html\\)' | xargs npx html-beautify --preserve-newlines --replace"
+        "beautify": "find ./dest/ -iregex '.*\\.\\(xml\\|html\\)' | xargs npx html-beautify --replace --config .beautify.json"
     },
     "author": "elvis.olv@gmail.com",
     "license": "ISC",
