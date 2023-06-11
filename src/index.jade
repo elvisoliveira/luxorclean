@@ -45,6 +45,11 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                 "name": "#{ title }",
                 "url": "#{ url }",
                 "telephone": "#{ contact.phone }",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "ratingCount": "15"
+                },
                 "openingHoursSpecification": [{
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -72,6 +77,10 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
                 "image": [
                     "#{ url }assets/cover.jpg"
                 ]
+            }, {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "15"
             }, {
                 "@type": "Organization",
                 "url": "#{ url }",
