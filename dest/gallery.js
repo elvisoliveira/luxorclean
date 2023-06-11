@@ -29,7 +29,6 @@ jQuery(function() {
   };
   return jQuery('div.collection').slick({
     arrows: false,
-    lazyLoad: 'ondemand',
     dots: false,
     infinite: true,
     autoplay: true,
