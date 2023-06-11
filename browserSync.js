@@ -6,14 +6,12 @@ module.exports = {
         proxyRes: [
             function(proxyRes, req, res) {
                 if(req.originalUrl == '/') {
-                    let buffer;
+                    let html;
                     proxyRes.on('data', data => {
-                        const html = beautify(data.toString());
-                        buffer = new Buffer(html);
+                        html = beautify(data.toString());
                     });
                     proxyRes.on('end', () => {
-                        res.data = buffer.toString();
-                        res.end();
+                        res.data = html;
                     });
                 }
             }

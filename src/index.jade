@@ -152,19 +152,19 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           dd
             each value, label in contact
               dl(class=label)
-                - label = label.charAt(0).toUpperCase() + label.slice(1);
-                dt #{ label }
+                - labelc = label.charAt(0).toUpperCase() + label.slice(1);
+                dt #{ labelc }
                 dd(property="#{ label }") #{ value }
         dl.address
           dt
             h2 Endereço
           dd
             address(property="address" typeof="PostalAddress")
-              span(property="streetAddress") #{ address.street }
-              span(property="addressLocality") #{ address.city }
-              span(property="addressRegion") #{ address.state }
-              span(property="postalCode") #{ address.cep }
-              span(property="addressCountry") #{ address.country }
+              span(property="streetAddress") #{ address.street } 
+              span(property="addressLocality") #{ address.city } 
+              span(property="addressRegion") #{ address.state } 
+              span(property="postalCode") #{ address.cep } 
+              span(property="addressCountry") #{ address.country } 
     #section-map
       iframe(title='Google Maps' src='https://maps.google.com/maps?q=#{ address.street } #{ address.city } #{ address.state }&output=embed&key=#{ keys.google_maps }' scrolling='no' marginheight='0' marginwidth='0' frameborder='0')
     #section-footer
