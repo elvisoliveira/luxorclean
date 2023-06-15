@@ -1,3 +1,37 @@
 div#section-faq {
-    display: none;
+    background-color: #FFF;
+    div#faq {
+        padding-top: 25px;
+        dl {
+            dt {
+                h2 {
+                    font-weight: bold;
+                    font-size: 40px;
+                    line-height: 60px;
+                }
+            }
+        }
+        ul {
+            margin-top: 20px;
+            li {
+                list-style: none;
+                margin-bottom: 10px;
+                cursor: pointer;
+                dl {
+                    color: #303659;
+                    background-color: #eff4f8;
+                    padding: 10px;
+                    border-radius: 5px;
+                    dt {
+                        font-size: 18px;
+                    }
+                    dd {
+                        display: none;
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
 }

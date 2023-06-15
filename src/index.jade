@@ -165,9 +165,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
               img(src=(`assets/img/logo.png`) alt='#{ title }' width='442' height='80')
         .menu
           ul
-            li
-              a(data-fancybox href='#section-faq' data-src='#section-faq' data-width=700 data-height=500) FAQ
-            each menu, key in { 'services': 'Serviços', 'contact': 'Contato' }
+            each menu, key in { 'faq': 'FAQ', 'services': 'Serviços', 'contact': 'Contato' }
               li
                 a(href='#section-' + key) #{ menu }
     #section-banner
@@ -212,14 +210,19 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
             dd(id=id)
               for paragraph in post.description
                 p #{ paragraph }
-    #section-faq(aria-hidden='true')
-      ul(itemscope='' itemtype='https://schema.org/FAQPage')
-        for faq, i in public.faq._data
-          li
-            dl(itemscope='' itemprop='mainEntity' itemtype='https://schema.org/Question')
-              dt(itemprop='name') #{ faq.question }
-              dd(itemscope='' itemprop='acceptedAnswer' itemtype='https://schema.org/Answer')
-                p(itemprop='text') #{ faq.answer }
+    #section-faq
+      #faq
+        dl
+          dt
+            h2 Perguntas Frequentes
+          dd
+            ul(itemscope='' itemtype='https://schema.org/FAQPage')
+              for faq, i in public.faq._data
+                li
+                  dl(itemscope='' itemprop='mainEntity' itemtype='https://schema.org/Question')
+                    dt(itemprop='name') #{ faq.question }
+                    dd(itemscope='' itemprop='acceptedAnswer' itemtype='https://schema.org/Answer' aria-hidden='true')
+                      p(itemprop='text') #{ faq.answer }
     #section-contact
       #contact
         dl.form
@@ -267,7 +270,7 @@ html(xmlns='http://www.w3.org/1999/xhtml' xml:lang='pt-br' dir='ltr' lang='pt-br
           ul
             each link, name in social
               li
-                a(class=name href=link) #{ name }
+                a(class=name href=link target='_blank') #{ name }
 
     link(rel='stylesheet' type='text/css' media='screen' href='https://fonts.googleapis.com/css?family=Rubik&display=swap')
 

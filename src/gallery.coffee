@@ -11,6 +11,9 @@ jQuery ->
   jQuery.event.special.mousewheel = setup: (_, ns, handle) ->
     @addEventListener 'mousewheel', handle, passive: true
     return
+  jQuery('dl[itemprop=mainEntity]').click ->
+    $(this).find('[itemprop=acceptedAnswer]').slideToggle 'fast'
+    return
   jQuery('div.collection').slick({
     arrows: false,
     dots: false,
@@ -19,3 +22,8 @@ jQuery ->
     variableWidth: true,
     swipeToSlide: true
   });
+  jQuery('a[href*="#section"]').on 'click', (e) ->
+    e.preventDefault()
+    target = $(this).attr('href')
+    jQuery('html, body').animate { scrollTop: $(target).offset().top }, 2000
+    return

@@ -1,6 +1,7 @@
 div#section-header {
     height: 98px;
-    border-bottom: 2px solid #BFC3C6;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(1px);
     @include respond-to(handhelds) {
         height: auto;
     }

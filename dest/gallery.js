@@ -27,12 +27,23 @@ jQuery(function() {
       });
     }
   };
-  return jQuery('div.collection').slick({
+  jQuery('dl[itemprop=mainEntity]').click(function() {
+    $(this).find('[itemprop=acceptedAnswer]').slideToggle('fast');
+  });
+  jQuery('div.collection').slick({
     arrows: false,
     dots: false,
     infinite: true,
     autoplay: true,
     variableWidth: true,
     swipeToSlide: true
+  });
+  return jQuery('a[href*="#section"]').on('click', function(e) {
+    var target;
+    e.preventDefault();
+    target = $(this).attr('href');
+    jQuery('html, body').animate({
+      scrollTop: $(target).offset().top
+    }, 2000);
   });
 });

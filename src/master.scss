@@ -48,6 +48,7 @@ $break-small: 1024px;
 }
 body {
     @include bg-image("assets/img/background");
+    background-attachment: fixed;
     > div {
         @extend %clear;
         > div:nth-child(1) {
